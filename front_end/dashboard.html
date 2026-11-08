@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Panel privado de Aesthetic Clean." />
+    <title>Mi panel | Aesthetic Clean</title>
+    <link rel="icon" type="image/jpeg" href="../imagenes/imagenrefaest.jpeg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="dashboard.js" defer></script>
+  </head>
+  <body class="dashboard-page">
+    <header class="subpage-header">
+      <a class="brand" href="index.html">AESTETHIC CLEAND</a>
+      <div class="dashboard-user">
+        <span id="user-name"></span>
+        <button id="logout-button" class="outline-button" type="button">Cerrar sesión</button>
+      </div>
+    </header>
+    <main class="dashboard-main">
+      <div class="dashboard-heading">
+        <div>
+          <p class="eyebrow">Área privada</p>
+          <h1 id="dashboard-title">Mi panel</h1>
+        </div>
+        <span id="user-role" class="role-badge"></span>
+      </div>
+      <p class="form-message" id="dashboard-message" role="status" aria-live="polite"></p>
+
+      <section id="client-section" class="dashboard-section" hidden>
+        <h2>Registrar solicitud de servicio</h2>
+        <form id="request-form" class="dashboard-form">
+          <label for="request-service">Servicio</label>
+          <select id="request-service" name="service" required>
+            <option value="">Selecciona un servicio</option>
+            <option>Instalación de aire acondicionado</option>
+            <option>Secado de carros</option>
+            <option>Limpieza de oficinas</option>
+          </select>
+          <label for="request-description">Cuéntanos qué necesitas</label>
+          <textarea id="request-description" name="description" rows="5" maxlength="3000" required></textarea>
+          <label for="request-photo">Foto (JPG, PNG o WebP; máximo 5 MB)</label>
+          <input id="request-photo" name="photo" type="file" accept="image/jpeg,image/png,image/webp" />
+          <button class="button" type="submit">Enviar solicitud</button>
+        </form>
+      </section>
+
+      <section class="dashboard-section">
+        <div class="section-heading">
+          <h2 id="requests-heading">Solicitudes</h2>
+          <button id="refresh-requests" class="outline-button" type="button">Actualizar</button>
+        </div>
+        <div id="requests-list" class="request-list"></div>
+      </section>
+
+      <section id="admin-reports" class="dashboard-section" hidden>
+        <h2>Registro diario de ingresos y gastos</h2>
+        <form id="report-form" class="dashboard-form form-grid">
+          <label for="entry-date">Fecha</label>
+          <input id="entry-date" name="date" type="date" required />
+          <label for="entry-kind">Tipo</label>
+          <select id="entry-kind" name="kind" required>
+            <option value="income">Ingreso por servicio</option>
+            <option value="expense">Gasto / compra</option>
+          </select>
+          <label for="entry-service">Servicio (para ingresos)</label>
+          <select id="entry-service" name="service">
+            <option>Instalación de aire acondicionado</option>
+            <option>Secado de carros</option>
+            <option>Limpieza de oficinas</option>
+          </select>
+          <label for="entry-category">Categoría</label>
+          <select id="entry-category" name="category" required>
+            <option value="Servicio">Servicio</option>
+            <option value="Equipos">Compra de equipos</option>
+            <option value="Químicos">Compra de químicos</option>
+            <option value="Otros">Otros gastos</option>
+          </select>
+          <label for="entry-amount">Monto (USD)</label>
+          <input id="entry-amount" name="amount" type="number" min="0.01" step="0.01" required />
+          <label for="entry-description">Detalle</label>
+          <textarea id="entry-description" name="description" rows="3" maxlength="1000" required></textarea>
+          <button class="button" type="submit">Guardar registro</button>
+        </form>
+        <div class="report-filter">
+          <label for="reports-date">Consultar el día</label>
+          <input id="reports-date" type="date" />
+          <button id="filter-reports" class="outline-button" type="button">Ver reportes del día</button>
+          <button id="all-reports" class="outline-button" type="button">Ver últimos reportes</button>
+        </div>
+        <div class="report-totals" id="report-totals"></div>
+        <h3>Registros recientes</h3>
+        <div id="reports-list" class="request-list"></div>
+      </section>
+
+      <section id="admin-users" class="dashboard-section" hidden>
+        <h2>Crear cuenta de personal</h2>
+        <p>Solo el administrador puede crear cuentas de colaboradores y otros administradores.</p>
+        <form id="user-form" class="dashboard-form form-grid">
+          <label for="staff-name">Nombre</label>
+          <input id="staff-name" name="name" autocomplete="name" required maxlength="120" />
+          <label for="staff-email">Correo</label>
+          <input id="staff-email" name="email" type="email" autocomplete="email" required maxlength="254" />
+          <label for="staff-role">Rol</label>
+          <select id="staff-role" name="role" required>
+            <option value="collaborator">Colaborador</option>
+            <option value="admin">Administrador</option>
+          </select>
+          <label for="staff-password">Contraseña temporal (mínimo 12 caracteres)</label>
+          <input id="staff-password" name="password" type="password" autocomplete="new-password" required minlength="12" maxlength="128" />
+          <button class="button" type="submit">Crear cuenta</button>
+        </form>
+        <h3>Personal con acceso</h3>
+        <div id="users-list" class="request-list"></div>
+      </section>
+    </main>
+  </body>
+</html>

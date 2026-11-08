@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Accede a tu cuenta de Aesthetic Clean." />
+    <title>Iniciar sesión | Aesthetic Clean</title>
+    <link rel="icon" type="image/jpeg" href="../imagenes/imagenrefaest.jpeg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="auth.js" defer></script>
+  </head>
+  <body class="account-page">
+    <header class="subpage-header">
+      <a class="brand" href="index.html">AESTETHIC CLEAND</a>
+      <nav class="navigation" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+    </header>
+    <main class="account-main">
+      <section class="account-card" aria-labelledby="account-title">
+        <p class="eyebrow">Aesthetic Clean</p>
+        <h1 id="account-title">Iniciar sesión</h1>
+        <p class="account-intro">Ingresa a tu cuenta para continuar.</p>
+        <p class="form-message" id="account-message" role="status" aria-live="polite"></p>
+
+        <form id="login-form" class="account-form">
+          <label for="login-email">Correo electrónico</label>
+          <input id="login-email" name="email" type="email" autocomplete="email" required maxlength="254" />
+          <label for="login-password">Contraseña</label>
+          <input id="login-password" name="password" type="password" autocomplete="current-password" required maxlength="128" />
+          <button class="button" type="submit">Entrar</button>
+        </form>
+
+        <div class="account-divider"><span>¿Eres nuevo?</span></div>
+        <button id="show-register" class="text-button" type="button">Crear cuenta de cliente</button>
+
+        <form id="register-form" class="account-form" hidden>
+          <h2>Crear cuenta de cliente</h2>
+          <label for="register-name">Nombre completo</label>
+          <input id="register-name" name="name" autocomplete="name" required maxlength="120" />
+          <label for="register-email">Correo electrónico</label>
+          <input id="register-email" name="email" type="email" autocomplete="email" required maxlength="254" />
+          <label for="register-password">Contraseña (mínimo 12 caracteres)</label>
+          <input id="register-password" name="password" type="password" autocomplete="new-password" required minlength="12" maxlength="128" />
+          <button class="button" type="submit">Crear cuenta</button>
+        </form>
+        <p class="account-back"><a href="index.html">Volver al inicio</a></p>
+      </section>
+    </main>
+  </body>
+</html>
