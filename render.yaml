@@ -3,6 +3,7 @@ services:
     name: aesthetic-clean
     runtime: node
     plan: free
+    region: oregon
     rootDir: backend
     buildCommand: npm ci
     startCommand: npm start
